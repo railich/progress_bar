@@ -1,0 +1,1737 @@
+.my-progress-bar {
+  margin-top: 5px;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid #acacac;
+  border-radius: 5.5px;
+  height: 11px;
+  width: 213px;
+  background: #dadada;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RhZGFkYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjZGFkYWRhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiNlM2UzZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjBmMGYwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dadada), color-stop(3%, #dadada), color-stop(4%, #e3e3e3), color-stop(100%, #f0f0f0));
+  background: -webkit-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -o-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -ms-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: linear-gradient(to bottom, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dadada', endColorstr='#f0f0f0', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar:after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  top: -1px;
+  left: -1px;
+  height: 11px;
+  width: 213px;
+  border-radius: 5.5px;
+}
+.my-progress-bar:before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  right: 4.4px;
+  height: 11px;
+  width: 213px;
+  z-index: 1;
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Arial;
+  text-align: right;
+  line-height: 11px;
+}
+.my-progress-bar.show-progress-info {
+  margin-left: 30px;
+}
+.my-progress-bar.show-progress-info:before {
+  right: 218px;
+  top: -1px;
+}
+.my-progress-bar.green:after {
+  border: 1px solid #8dab65;
+  background: #d2ff4c;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QyZmY0YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjZDJmZjRjIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiNiZWU4NDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOTVjYTU4IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2ff4c), color-stop(3%, #d2ff4c), color-stop(4%, #bee848), color-stop(100%, #95ca58));
+  background: -webkit-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -o-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -ms-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: linear-gradient(to bottom, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2ff4c', endColorstr='#95ca58', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar.blue:after {
+  border: 1px solid #80a9bf;
+  background: #63effe;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYzZWZmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjNjNlZmZlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiM1YmQ5ZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDE5ZmU5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #63effe), color-stop(3%, #63effe), color-stop(4%, #5bd9ff), color-stop(100%, #419fe9));
+  background: -webkit-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -o-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -ms-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: linear-gradient(to bottom, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#63effe', endColorstr='#419fe9', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar.orange:after {
+  border: 1px solid #bc8078;
+  background: #ffbf5e;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYmY1ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQlIiBzdG9wLWNvbG9yPSIjZmZiZjVlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNSUiIHN0b3AtY29sb3I9IiNmZjlmNTIiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2ZmOWY1MiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZTc0NDUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbf5e), color-stop(4%, #ffbf5e), color-stop(5%, #ff9f52), color-stop(5%, #ff9f52), color-stop(100%, #fe7445));
+  background: -webkit-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -o-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -ms-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: linear-gradient(to bottom, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffbf5e', endColorstr='#fe7445', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar.lvl-0:after {
+  display: none;
+}
+.my-progress-bar.lvl-10-10:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-10-10.show-progress-info:before {
+  content: "10 / 10";
+}
+.my-progress-bar.lvl-10-10.show-progress-info-right:before {
+  content: "10 / 10";
+}
+.my-progress-bar.lvl-9-10:after {
+  width: 191.7px;
+}
+.my-progress-bar.lvl-9-10.show-progress-info:before {
+  content: "9 / 10";
+}
+.my-progress-bar.lvl-9-10.show-progress-info-right:before {
+  content: "9 / 10";
+}
+.my-progress-bar.lvl-8-10:after {
+  width: 170.4px;
+}
+.my-progress-bar.lvl-8-10.show-progress-info:before {
+  content: "8 / 10";
+}
+.my-progress-bar.lvl-8-10.show-progress-info-right:before {
+  content: "8 / 10";
+}
+.my-progress-bar.lvl-7-10:after {
+  width: 149.1px;
+}
+.my-progress-bar.lvl-7-10.show-progress-info:before {
+  content: "7 / 10";
+}
+.my-progress-bar.lvl-7-10.show-progress-info-right:before {
+  content: "7 / 10";
+}
+.my-progress-bar.lvl-6-10:after {
+  width: 127.8px;
+}
+.my-progress-bar.lvl-6-10.show-progress-info:before {
+  content: "6 / 10";
+}
+.my-progress-bar.lvl-6-10.show-progress-info-right:before {
+  content: "6 / 10";
+}
+.my-progress-bar.lvl-5-10:after {
+  width: 106.5px;
+}
+.my-progress-bar.lvl-5-10.show-progress-info:before {
+  content: "5 / 10";
+}
+.my-progress-bar.lvl-5-10.show-progress-info-right:before {
+  content: "5 / 10";
+}
+.my-progress-bar.lvl-4-10:after {
+  width: 85.2px;
+}
+.my-progress-bar.lvl-4-10.show-progress-info:before {
+  content: "4 / 10";
+}
+.my-progress-bar.lvl-4-10.show-progress-info-right:before {
+  content: "4 / 10";
+}
+.my-progress-bar.lvl-3-10:after {
+  width: 63.9px;
+}
+.my-progress-bar.lvl-3-10.show-progress-info:before {
+  content: "3 / 10";
+}
+.my-progress-bar.lvl-3-10.show-progress-info-right:before {
+  content: "3 / 10";
+}
+.my-progress-bar.lvl-2-10:after {
+  width: 42.6px;
+}
+.my-progress-bar.lvl-2-10.show-progress-info:before {
+  content: "2 / 10";
+}
+.my-progress-bar.lvl-2-10.show-progress-info-right:before {
+  content: "2 / 10";
+}
+.my-progress-bar.lvl-1-10:after {
+  width: 21.3px;
+}
+.my-progress-bar.lvl-1-10.show-progress-info:before {
+  content: "1 / 10";
+}
+.my-progress-bar.lvl-1-10.show-progress-info-right:before {
+  content: "1 / 10";
+}
+.my-progress-bar.lvl-9-9:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-9-9.show-progress-info:before {
+  content: "9 / 9";
+}
+.my-progress-bar.lvl-9-9.show-progress-info-right:before {
+  content: "9 / 9";
+}
+.my-progress-bar.lvl-8-9:after {
+  width: 189.33333333px;
+}
+.my-progress-bar.lvl-8-9.show-progress-info:before {
+  content: "8 / 9";
+}
+.my-progress-bar.lvl-8-9.show-progress-info-right:before {
+  content: "8 / 9";
+}
+.my-progress-bar.lvl-7-9:after {
+  width: 165.66666667px;
+}
+.my-progress-bar.lvl-7-9.show-progress-info:before {
+  content: "7 / 9";
+}
+.my-progress-bar.lvl-7-9.show-progress-info-right:before {
+  content: "7 / 9";
+}
+.my-progress-bar.lvl-6-9:after {
+  width: 142px;
+}
+.my-progress-bar.lvl-6-9.show-progress-info:before {
+  content: "6 / 9";
+}
+.my-progress-bar.lvl-6-9.show-progress-info-right:before {
+  content: "6 / 9";
+}
+.my-progress-bar.lvl-5-9:after {
+  width: 118.33333333px;
+}
+.my-progress-bar.lvl-5-9.show-progress-info:before {
+  content: "5 / 9";
+}
+.my-progress-bar.lvl-5-9.show-progress-info-right:before {
+  content: "5 / 9";
+}
+.my-progress-bar.lvl-4-9:after {
+  width: 94.66666667px;
+}
+.my-progress-bar.lvl-4-9.show-progress-info:before {
+  content: "4 / 9";
+}
+.my-progress-bar.lvl-4-9.show-progress-info-right:before {
+  content: "4 / 9";
+}
+.my-progress-bar.lvl-3-9:after {
+  width: 71px;
+}
+.my-progress-bar.lvl-3-9.show-progress-info:before {
+  content: "3 / 9";
+}
+.my-progress-bar.lvl-3-9.show-progress-info-right:before {
+  content: "3 / 9";
+}
+.my-progress-bar.lvl-2-9:after {
+  width: 47.33333333px;
+}
+.my-progress-bar.lvl-2-9.show-progress-info:before {
+  content: "2 / 9";
+}
+.my-progress-bar.lvl-2-9.show-progress-info-right:before {
+  content: "2 / 9";
+}
+.my-progress-bar.lvl-1-9:after {
+  width: 23.66666667px;
+}
+.my-progress-bar.lvl-1-9.show-progress-info:before {
+  content: "1 / 9";
+}
+.my-progress-bar.lvl-1-9.show-progress-info-right:before {
+  content: "1 / 9";
+}
+.my-progress-bar.lvl-8-8:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-8-8.show-progress-info:before {
+  content: "8 / 8";
+}
+.my-progress-bar.lvl-8-8.show-progress-info-right:before {
+  content: "8 / 8";
+}
+.my-progress-bar.lvl-7-8:after {
+  width: 186.375px;
+}
+.my-progress-bar.lvl-7-8.show-progress-info:before {
+  content: "7 / 8";
+}
+.my-progress-bar.lvl-7-8.show-progress-info-right:before {
+  content: "7 / 8";
+}
+.my-progress-bar.lvl-6-8:after {
+  width: 159.75px;
+}
+.my-progress-bar.lvl-6-8.show-progress-info:before {
+  content: "6 / 8";
+}
+.my-progress-bar.lvl-6-8.show-progress-info-right:before {
+  content: "6 / 8";
+}
+.my-progress-bar.lvl-5-8:after {
+  width: 133.125px;
+}
+.my-progress-bar.lvl-5-8.show-progress-info:before {
+  content: "5 / 8";
+}
+.my-progress-bar.lvl-5-8.show-progress-info-right:before {
+  content: "5 / 8";
+}
+.my-progress-bar.lvl-4-8:after {
+  width: 106.5px;
+}
+.my-progress-bar.lvl-4-8.show-progress-info:before {
+  content: "4 / 8";
+}
+.my-progress-bar.lvl-4-8.show-progress-info-right:before {
+  content: "4 / 8";
+}
+.my-progress-bar.lvl-3-8:after {
+  width: 79.875px;
+}
+.my-progress-bar.lvl-3-8.show-progress-info:before {
+  content: "3 / 8";
+}
+.my-progress-bar.lvl-3-8.show-progress-info-right:before {
+  content: "3 / 8";
+}
+.my-progress-bar.lvl-2-8:after {
+  width: 53.25px;
+}
+.my-progress-bar.lvl-2-8.show-progress-info:before {
+  content: "2 / 8";
+}
+.my-progress-bar.lvl-2-8.show-progress-info-right:before {
+  content: "2 / 8";
+}
+.my-progress-bar.lvl-1-8:after {
+  width: 26.625px;
+}
+.my-progress-bar.lvl-1-8.show-progress-info:before {
+  content: "1 / 8";
+}
+.my-progress-bar.lvl-1-8.show-progress-info-right:before {
+  content: "1 / 8";
+}
+.my-progress-bar.lvl-7-7:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-7-7.show-progress-info:before {
+  content: "7 / 7";
+}
+.my-progress-bar.lvl-7-7.show-progress-info-right:before {
+  content: "7 / 7";
+}
+.my-progress-bar.lvl-6-7:after {
+  width: 182.57142857px;
+}
+.my-progress-bar.lvl-6-7.show-progress-info:before {
+  content: "6 / 7";
+}
+.my-progress-bar.lvl-6-7.show-progress-info-right:before {
+  content: "6 / 7";
+}
+.my-progress-bar.lvl-5-7:after {
+  width: 152.14285714px;
+}
+.my-progress-bar.lvl-5-7.show-progress-info:before {
+  content: "5 / 7";
+}
+.my-progress-bar.lvl-5-7.show-progress-info-right:before {
+  content: "5 / 7";
+}
+.my-progress-bar.lvl-4-7:after {
+  width: 121.71428571px;
+}
+.my-progress-bar.lvl-4-7.show-progress-info:before {
+  content: "4 / 7";
+}
+.my-progress-bar.lvl-4-7.show-progress-info-right:before {
+  content: "4 / 7";
+}
+.my-progress-bar.lvl-3-7:after {
+  width: 91.28571429px;
+}
+.my-progress-bar.lvl-3-7.show-progress-info:before {
+  content: "3 / 7";
+}
+.my-progress-bar.lvl-3-7.show-progress-info-right:before {
+  content: "3 / 7";
+}
+.my-progress-bar.lvl-2-7:after {
+  width: 60.85714286px;
+}
+.my-progress-bar.lvl-2-7.show-progress-info:before {
+  content: "2 / 7";
+}
+.my-progress-bar.lvl-2-7.show-progress-info-right:before {
+  content: "2 / 7";
+}
+.my-progress-bar.lvl-1-7:after {
+  width: 30.42857143px;
+}
+.my-progress-bar.lvl-1-7.show-progress-info:before {
+  content: "1 / 7";
+}
+.my-progress-bar.lvl-1-7.show-progress-info-right:before {
+  content: "1 / 7";
+}
+.my-progress-bar.lvl-6-6:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-6-6.show-progress-info:before {
+  content: "6 / 6";
+}
+.my-progress-bar.lvl-6-6.show-progress-info-right:before {
+  content: "6 / 6";
+}
+.my-progress-bar.lvl-5-6:after {
+  width: 177.5px;
+}
+.my-progress-bar.lvl-5-6.show-progress-info:before {
+  content: "5 / 6";
+}
+.my-progress-bar.lvl-5-6.show-progress-info-right:before {
+  content: "5 / 6";
+}
+.my-progress-bar.lvl-4-6:after {
+  width: 142px;
+}
+.my-progress-bar.lvl-4-6.show-progress-info:before {
+  content: "4 / 6";
+}
+.my-progress-bar.lvl-4-6.show-progress-info-right:before {
+  content: "4 / 6";
+}
+.my-progress-bar.lvl-3-6:after {
+  width: 106.5px;
+}
+.my-progress-bar.lvl-3-6.show-progress-info:before {
+  content: "3 / 6";
+}
+.my-progress-bar.lvl-3-6.show-progress-info-right:before {
+  content: "3 / 6";
+}
+.my-progress-bar.lvl-2-6:after {
+  width: 71px;
+}
+.my-progress-bar.lvl-2-6.show-progress-info:before {
+  content: "2 / 6";
+}
+.my-progress-bar.lvl-2-6.show-progress-info-right:before {
+  content: "2 / 6";
+}
+.my-progress-bar.lvl-1-6:after {
+  width: 35.5px;
+}
+.my-progress-bar.lvl-1-6.show-progress-info:before {
+  content: "1 / 6";
+}
+.my-progress-bar.lvl-1-6.show-progress-info-right:before {
+  content: "1 / 6";
+}
+.my-progress-bar.lvl-5-5:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-5-5.show-progress-info:before {
+  content: "5 / 5";
+}
+.my-progress-bar.lvl-5-5.show-progress-info-right:before {
+  content: "5 / 5";
+}
+.my-progress-bar.lvl-4-5:after {
+  width: 170.4px;
+}
+.my-progress-bar.lvl-4-5.show-progress-info:before {
+  content: "4 / 5";
+}
+.my-progress-bar.lvl-4-5.show-progress-info-right:before {
+  content: "4 / 5";
+}
+.my-progress-bar.lvl-3-5:after {
+  width: 127.8px;
+}
+.my-progress-bar.lvl-3-5.show-progress-info:before {
+  content: "3 / 5";
+}
+.my-progress-bar.lvl-3-5.show-progress-info-right:before {
+  content: "3 / 5";
+}
+.my-progress-bar.lvl-2-5:after {
+  width: 85.2px;
+}
+.my-progress-bar.lvl-2-5.show-progress-info:before {
+  content: "2 / 5";
+}
+.my-progress-bar.lvl-2-5.show-progress-info-right:before {
+  content: "2 / 5";
+}
+.my-progress-bar.lvl-1-5:after {
+  width: 42.6px;
+}
+.my-progress-bar.lvl-1-5.show-progress-info:before {
+  content: "1 / 5";
+}
+.my-progress-bar.lvl-1-5.show-progress-info-right:before {
+  content: "1 / 5";
+}
+.my-progress-bar.lvl-4-4:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-4-4.show-progress-info:before {
+  content: "4 / 4";
+}
+.my-progress-bar.lvl-4-4.show-progress-info-right:before {
+  content: "4 / 4";
+}
+.my-progress-bar.lvl-3-4:after {
+  width: 159.75px;
+}
+.my-progress-bar.lvl-3-4.show-progress-info:before {
+  content: "3 / 4";
+}
+.my-progress-bar.lvl-3-4.show-progress-info-right:before {
+  content: "3 / 4";
+}
+.my-progress-bar.lvl-2-4:after {
+  width: 106.5px;
+}
+.my-progress-bar.lvl-2-4.show-progress-info:before {
+  content: "2 / 4";
+}
+.my-progress-bar.lvl-2-4.show-progress-info-right:before {
+  content: "2 / 4";
+}
+.my-progress-bar.lvl-1-4:after {
+  width: 53.25px;
+}
+.my-progress-bar.lvl-1-4.show-progress-info:before {
+  content: "1 / 4";
+}
+.my-progress-bar.lvl-1-4.show-progress-info-right:before {
+  content: "1 / 4";
+}
+.my-progress-bar.lvl-3-3:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-3-3.show-progress-info:before {
+  content: "3 / 3";
+}
+.my-progress-bar.lvl-3-3.show-progress-info-right:before {
+  content: "3 / 3";
+}
+.my-progress-bar.lvl-2-3:after {
+  width: 142px;
+}
+.my-progress-bar.lvl-2-3.show-progress-info:before {
+  content: "2 / 3";
+}
+.my-progress-bar.lvl-2-3.show-progress-info-right:before {
+  content: "2 / 3";
+}
+.my-progress-bar.lvl-1-3:after {
+  width: 71px;
+}
+.my-progress-bar.lvl-1-3.show-progress-info:before {
+  content: "1 / 3";
+}
+.my-progress-bar.lvl-1-3.show-progress-info-right:before {
+  content: "1 / 3";
+}
+.my-progress-bar.lvl-2-2:after {
+  width: 213px;
+}
+.my-progress-bar.lvl-2-2.show-progress-info:before {
+  content: "2 / 2";
+}
+.my-progress-bar.lvl-2-2.show-progress-info-right:before {
+  content: "2 / 2";
+}
+.my-progress-bar.lvl-1-2:after {
+  width: 106.5px;
+}
+.my-progress-bar.lvl-1-2.show-progress-info:before {
+  content: "1 / 2";
+}
+.my-progress-bar.lvl-1-2.show-progress-info-right:before {
+  content: "1 / 2";
+}
+.my-progress-bar2 {
+  margin-top: 5px;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid #acacac;
+  border-radius: 10px;
+  height: 20px;
+  width: 500px;
+  background: #dadada;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RhZGFkYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjZGFkYWRhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiNlM2UzZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjBmMGYwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dadada), color-stop(3%, #dadada), color-stop(4%, #e3e3e3), color-stop(100%, #f0f0f0));
+  background: -webkit-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -o-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -ms-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: linear-gradient(to bottom, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dadada', endColorstr='#f0f0f0', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar2:after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  top: -1px;
+  left: -1px;
+  height: 20px;
+  width: 500px;
+  border-radius: 10px;
+}
+.my-progress-bar2:before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  right: 8px;
+  height: 11px;
+  width: 213px;
+  z-index: 1;
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Arial;
+  text-align: right;
+  line-height: 20px;
+}
+.my-progress-bar2.show-progress-info {
+  margin-left: 30px;
+}
+.my-progress-bar2.show-progress-info:before {
+  right: 505px;
+  top: -1px;
+}
+.my-progress-bar2.green:after {
+  border: 1px solid #8dab65;
+  background: #d2ff4c;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QyZmY0YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjZDJmZjRjIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiNiZWU4NDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOTVjYTU4IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2ff4c), color-stop(3%, #d2ff4c), color-stop(4%, #bee848), color-stop(100%, #95ca58));
+  background: -webkit-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -o-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -ms-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: linear-gradient(to bottom, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2ff4c', endColorstr='#95ca58', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar2.blue:after {
+  border: 1px solid #80a9bf;
+  background: #63effe;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYzZWZmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjNjNlZmZlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiM1YmQ5ZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDE5ZmU5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #63effe), color-stop(3%, #63effe), color-stop(4%, #5bd9ff), color-stop(100%, #419fe9));
+  background: -webkit-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -o-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -ms-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: linear-gradient(to bottom, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#63effe', endColorstr='#419fe9', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar2.orange:after {
+  border: 1px solid #bc8078;
+  background: #ffbf5e;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYmY1ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQlIiBzdG9wLWNvbG9yPSIjZmZiZjVlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNSUiIHN0b3AtY29sb3I9IiNmZjlmNTIiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2ZmOWY1MiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZTc0NDUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbf5e), color-stop(4%, #ffbf5e), color-stop(5%, #ff9f52), color-stop(5%, #ff9f52), color-stop(100%, #fe7445));
+  background: -webkit-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -o-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -ms-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: linear-gradient(to bottom, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffbf5e', endColorstr='#fe7445', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar2.lvl-0:after {
+  display: none;
+}
+.my-progress-bar2.lvl-10-10:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-10-10.show-progress-info:before {
+  content: "10 / 10";
+}
+.my-progress-bar2.lvl-10-10.show-progress-info-right:before {
+  content: "10 / 10";
+}
+.my-progress-bar2.lvl-9-10:after {
+  width: 450px;
+}
+.my-progress-bar2.lvl-9-10.show-progress-info:before {
+  content: "9 / 10";
+}
+.my-progress-bar2.lvl-9-10.show-progress-info-right:before {
+  content: "9 / 10";
+}
+.my-progress-bar2.lvl-8-10:after {
+  width: 400px;
+}
+.my-progress-bar2.lvl-8-10.show-progress-info:before {
+  content: "8 / 10";
+}
+.my-progress-bar2.lvl-8-10.show-progress-info-right:before {
+  content: "8 / 10";
+}
+.my-progress-bar2.lvl-7-10:after {
+  width: 350px;
+}
+.my-progress-bar2.lvl-7-10.show-progress-info:before {
+  content: "7 / 10";
+}
+.my-progress-bar2.lvl-7-10.show-progress-info-right:before {
+  content: "7 / 10";
+}
+.my-progress-bar2.lvl-6-10:after {
+  width: 300px;
+}
+.my-progress-bar2.lvl-6-10.show-progress-info:before {
+  content: "6 / 10";
+}
+.my-progress-bar2.lvl-6-10.show-progress-info-right:before {
+  content: "6 / 10";
+}
+.my-progress-bar2.lvl-5-10:after {
+  width: 250px;
+}
+.my-progress-bar2.lvl-5-10.show-progress-info:before {
+  content: "5 / 10";
+}
+.my-progress-bar2.lvl-5-10.show-progress-info-right:before {
+  content: "5 / 10";
+}
+.my-progress-bar2.lvl-4-10:after {
+  width: 200px;
+}
+.my-progress-bar2.lvl-4-10.show-progress-info:before {
+  content: "4 / 10";
+}
+.my-progress-bar2.lvl-4-10.show-progress-info-right:before {
+  content: "4 / 10";
+}
+.my-progress-bar2.lvl-3-10:after {
+  width: 150px;
+}
+.my-progress-bar2.lvl-3-10.show-progress-info:before {
+  content: "3 / 10";
+}
+.my-progress-bar2.lvl-3-10.show-progress-info-right:before {
+  content: "3 / 10";
+}
+.my-progress-bar2.lvl-2-10:after {
+  width: 100px;
+}
+.my-progress-bar2.lvl-2-10.show-progress-info:before {
+  content: "2 / 10";
+}
+.my-progress-bar2.lvl-2-10.show-progress-info-right:before {
+  content: "2 / 10";
+}
+.my-progress-bar2.lvl-1-10:after {
+  width: 50px;
+}
+.my-progress-bar2.lvl-1-10.show-progress-info:before {
+  content: "1 / 10";
+}
+.my-progress-bar2.lvl-1-10.show-progress-info-right:before {
+  content: "1 / 10";
+}
+.my-progress-bar2.lvl-9-9:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-9-9.show-progress-info:before {
+  content: "9 / 9";
+}
+.my-progress-bar2.lvl-9-9.show-progress-info-right:before {
+  content: "9 / 9";
+}
+.my-progress-bar2.lvl-8-9:after {
+  width: 444.44444444px;
+}
+.my-progress-bar2.lvl-8-9.show-progress-info:before {
+  content: "8 / 9";
+}
+.my-progress-bar2.lvl-8-9.show-progress-info-right:before {
+  content: "8 / 9";
+}
+.my-progress-bar2.lvl-7-9:after {
+  width: 388.88888889px;
+}
+.my-progress-bar2.lvl-7-9.show-progress-info:before {
+  content: "7 / 9";
+}
+.my-progress-bar2.lvl-7-9.show-progress-info-right:before {
+  content: "7 / 9";
+}
+.my-progress-bar2.lvl-6-9:after {
+  width: 333.33333333px;
+}
+.my-progress-bar2.lvl-6-9.show-progress-info:before {
+  content: "6 / 9";
+}
+.my-progress-bar2.lvl-6-9.show-progress-info-right:before {
+  content: "6 / 9";
+}
+.my-progress-bar2.lvl-5-9:after {
+  width: 277.77777778px;
+}
+.my-progress-bar2.lvl-5-9.show-progress-info:before {
+  content: "5 / 9";
+}
+.my-progress-bar2.lvl-5-9.show-progress-info-right:before {
+  content: "5 / 9";
+}
+.my-progress-bar2.lvl-4-9:after {
+  width: 222.22222222px;
+}
+.my-progress-bar2.lvl-4-9.show-progress-info:before {
+  content: "4 / 9";
+}
+.my-progress-bar2.lvl-4-9.show-progress-info-right:before {
+  content: "4 / 9";
+}
+.my-progress-bar2.lvl-3-9:after {
+  width: 166.66666667px;
+}
+.my-progress-bar2.lvl-3-9.show-progress-info:before {
+  content: "3 / 9";
+}
+.my-progress-bar2.lvl-3-9.show-progress-info-right:before {
+  content: "3 / 9";
+}
+.my-progress-bar2.lvl-2-9:after {
+  width: 111.11111111px;
+}
+.my-progress-bar2.lvl-2-9.show-progress-info:before {
+  content: "2 / 9";
+}
+.my-progress-bar2.lvl-2-9.show-progress-info-right:before {
+  content: "2 / 9";
+}
+.my-progress-bar2.lvl-1-9:after {
+  width: 55.55555556px;
+}
+.my-progress-bar2.lvl-1-9.show-progress-info:before {
+  content: "1 / 9";
+}
+.my-progress-bar2.lvl-1-9.show-progress-info-right:before {
+  content: "1 / 9";
+}
+.my-progress-bar2.lvl-8-8:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-8-8.show-progress-info:before {
+  content: "8 / 8";
+}
+.my-progress-bar2.lvl-8-8.show-progress-info-right:before {
+  content: "8 / 8";
+}
+.my-progress-bar2.lvl-7-8:after {
+  width: 437.5px;
+}
+.my-progress-bar2.lvl-7-8.show-progress-info:before {
+  content: "7 / 8";
+}
+.my-progress-bar2.lvl-7-8.show-progress-info-right:before {
+  content: "7 / 8";
+}
+.my-progress-bar2.lvl-6-8:after {
+  width: 375px;
+}
+.my-progress-bar2.lvl-6-8.show-progress-info:before {
+  content: "6 / 8";
+}
+.my-progress-bar2.lvl-6-8.show-progress-info-right:before {
+  content: "6 / 8";
+}
+.my-progress-bar2.lvl-5-8:after {
+  width: 312.5px;
+}
+.my-progress-bar2.lvl-5-8.show-progress-info:before {
+  content: "5 / 8";
+}
+.my-progress-bar2.lvl-5-8.show-progress-info-right:before {
+  content: "5 / 8";
+}
+.my-progress-bar2.lvl-4-8:after {
+  width: 250px;
+}
+.my-progress-bar2.lvl-4-8.show-progress-info:before {
+  content: "4 / 8";
+}
+.my-progress-bar2.lvl-4-8.show-progress-info-right:before {
+  content: "4 / 8";
+}
+.my-progress-bar2.lvl-3-8:after {
+  width: 187.5px;
+}
+.my-progress-bar2.lvl-3-8.show-progress-info:before {
+  content: "3 / 8";
+}
+.my-progress-bar2.lvl-3-8.show-progress-info-right:before {
+  content: "3 / 8";
+}
+.my-progress-bar2.lvl-2-8:after {
+  width: 125px;
+}
+.my-progress-bar2.lvl-2-8.show-progress-info:before {
+  content: "2 / 8";
+}
+.my-progress-bar2.lvl-2-8.show-progress-info-right:before {
+  content: "2 / 8";
+}
+.my-progress-bar2.lvl-1-8:after {
+  width: 62.5px;
+}
+.my-progress-bar2.lvl-1-8.show-progress-info:before {
+  content: "1 / 8";
+}
+.my-progress-bar2.lvl-1-8.show-progress-info-right:before {
+  content: "1 / 8";
+}
+.my-progress-bar2.lvl-7-7:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-7-7.show-progress-info:before {
+  content: "7 / 7";
+}
+.my-progress-bar2.lvl-7-7.show-progress-info-right:before {
+  content: "7 / 7";
+}
+.my-progress-bar2.lvl-6-7:after {
+  width: 428.57142857px;
+}
+.my-progress-bar2.lvl-6-7.show-progress-info:before {
+  content: "6 / 7";
+}
+.my-progress-bar2.lvl-6-7.show-progress-info-right:before {
+  content: "6 / 7";
+}
+.my-progress-bar2.lvl-5-7:after {
+  width: 357.14285714px;
+}
+.my-progress-bar2.lvl-5-7.show-progress-info:before {
+  content: "5 / 7";
+}
+.my-progress-bar2.lvl-5-7.show-progress-info-right:before {
+  content: "5 / 7";
+}
+.my-progress-bar2.lvl-4-7:after {
+  width: 285.71428571px;
+}
+.my-progress-bar2.lvl-4-7.show-progress-info:before {
+  content: "4 / 7";
+}
+.my-progress-bar2.lvl-4-7.show-progress-info-right:before {
+  content: "4 / 7";
+}
+.my-progress-bar2.lvl-3-7:after {
+  width: 214.28571429px;
+}
+.my-progress-bar2.lvl-3-7.show-progress-info:before {
+  content: "3 / 7";
+}
+.my-progress-bar2.lvl-3-7.show-progress-info-right:before {
+  content: "3 / 7";
+}
+.my-progress-bar2.lvl-2-7:after {
+  width: 142.85714286px;
+}
+.my-progress-bar2.lvl-2-7.show-progress-info:before {
+  content: "2 / 7";
+}
+.my-progress-bar2.lvl-2-7.show-progress-info-right:before {
+  content: "2 / 7";
+}
+.my-progress-bar2.lvl-1-7:after {
+  width: 71.42857143px;
+}
+.my-progress-bar2.lvl-1-7.show-progress-info:before {
+  content: "1 / 7";
+}
+.my-progress-bar2.lvl-1-7.show-progress-info-right:before {
+  content: "1 / 7";
+}
+.my-progress-bar2.lvl-6-6:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-6-6.show-progress-info:before {
+  content: "6 / 6";
+}
+.my-progress-bar2.lvl-6-6.show-progress-info-right:before {
+  content: "6 / 6";
+}
+.my-progress-bar2.lvl-5-6:after {
+  width: 416.66666667px;
+}
+.my-progress-bar2.lvl-5-6.show-progress-info:before {
+  content: "5 / 6";
+}
+.my-progress-bar2.lvl-5-6.show-progress-info-right:before {
+  content: "5 / 6";
+}
+.my-progress-bar2.lvl-4-6:after {
+  width: 333.33333333px;
+}
+.my-progress-bar2.lvl-4-6.show-progress-info:before {
+  content: "4 / 6";
+}
+.my-progress-bar2.lvl-4-6.show-progress-info-right:before {
+  content: "4 / 6";
+}
+.my-progress-bar2.lvl-3-6:after {
+  width: 250px;
+}
+.my-progress-bar2.lvl-3-6.show-progress-info:before {
+  content: "3 / 6";
+}
+.my-progress-bar2.lvl-3-6.show-progress-info-right:before {
+  content: "3 / 6";
+}
+.my-progress-bar2.lvl-2-6:after {
+  width: 166.66666667px;
+}
+.my-progress-bar2.lvl-2-6.show-progress-info:before {
+  content: "2 / 6";
+}
+.my-progress-bar2.lvl-2-6.show-progress-info-right:before {
+  content: "2 / 6";
+}
+.my-progress-bar2.lvl-1-6:after {
+  width: 83.33333333px;
+}
+.my-progress-bar2.lvl-1-6.show-progress-info:before {
+  content: "1 / 6";
+}
+.my-progress-bar2.lvl-1-6.show-progress-info-right:before {
+  content: "1 / 6";
+}
+.my-progress-bar2.lvl-5-5:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-5-5.show-progress-info:before {
+  content: "5 / 5";
+}
+.my-progress-bar2.lvl-5-5.show-progress-info-right:before {
+  content: "5 / 5";
+}
+.my-progress-bar2.lvl-4-5:after {
+  width: 400px;
+}
+.my-progress-bar2.lvl-4-5.show-progress-info:before {
+  content: "4 / 5";
+}
+.my-progress-bar2.lvl-4-5.show-progress-info-right:before {
+  content: "4 / 5";
+}
+.my-progress-bar2.lvl-3-5:after {
+  width: 300px;
+}
+.my-progress-bar2.lvl-3-5.show-progress-info:before {
+  content: "3 / 5";
+}
+.my-progress-bar2.lvl-3-5.show-progress-info-right:before {
+  content: "3 / 5";
+}
+.my-progress-bar2.lvl-2-5:after {
+  width: 200px;
+}
+.my-progress-bar2.lvl-2-5.show-progress-info:before {
+  content: "2 / 5";
+}
+.my-progress-bar2.lvl-2-5.show-progress-info-right:before {
+  content: "2 / 5";
+}
+.my-progress-bar2.lvl-1-5:after {
+  width: 100px;
+}
+.my-progress-bar2.lvl-1-5.show-progress-info:before {
+  content: "1 / 5";
+}
+.my-progress-bar2.lvl-1-5.show-progress-info-right:before {
+  content: "1 / 5";
+}
+.my-progress-bar2.lvl-4-4:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-4-4.show-progress-info:before {
+  content: "4 / 4";
+}
+.my-progress-bar2.lvl-4-4.show-progress-info-right:before {
+  content: "4 / 4";
+}
+.my-progress-bar2.lvl-3-4:after {
+  width: 375px;
+}
+.my-progress-bar2.lvl-3-4.show-progress-info:before {
+  content: "3 / 4";
+}
+.my-progress-bar2.lvl-3-4.show-progress-info-right:before {
+  content: "3 / 4";
+}
+.my-progress-bar2.lvl-2-4:after {
+  width: 250px;
+}
+.my-progress-bar2.lvl-2-4.show-progress-info:before {
+  content: "2 / 4";
+}
+.my-progress-bar2.lvl-2-4.show-progress-info-right:before {
+  content: "2 / 4";
+}
+.my-progress-bar2.lvl-1-4:after {
+  width: 125px;
+}
+.my-progress-bar2.lvl-1-4.show-progress-info:before {
+  content: "1 / 4";
+}
+.my-progress-bar2.lvl-1-4.show-progress-info-right:before {
+  content: "1 / 4";
+}
+.my-progress-bar2.lvl-3-3:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-3-3.show-progress-info:before {
+  content: "3 / 3";
+}
+.my-progress-bar2.lvl-3-3.show-progress-info-right:before {
+  content: "3 / 3";
+}
+.my-progress-bar2.lvl-2-3:after {
+  width: 333.33333333px;
+}
+.my-progress-bar2.lvl-2-3.show-progress-info:before {
+  content: "2 / 3";
+}
+.my-progress-bar2.lvl-2-3.show-progress-info-right:before {
+  content: "2 / 3";
+}
+.my-progress-bar2.lvl-1-3:after {
+  width: 166.66666667px;
+}
+.my-progress-bar2.lvl-1-3.show-progress-info:before {
+  content: "1 / 3";
+}
+.my-progress-bar2.lvl-1-3.show-progress-info-right:before {
+  content: "1 / 3";
+}
+.my-progress-bar2.lvl-2-2:after {
+  width: 500px;
+}
+.my-progress-bar2.lvl-2-2.show-progress-info:before {
+  content: "2 / 2";
+}
+.my-progress-bar2.lvl-2-2.show-progress-info-right:before {
+  content: "2 / 2";
+}
+.my-progress-bar2.lvl-1-2:after {
+  width: 250px;
+}
+.my-progress-bar2.lvl-1-2.show-progress-info:before {
+  content: "1 / 2";
+}
+.my-progress-bar2.lvl-1-2.show-progress-info-right:before {
+  content: "1 / 2";
+}
+.my-progress-bar3 {
+  margin-top: 5px;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid #acacac;
+  border-radius: 6px;
+  height: 12px;
+  width: 800px;
+  background: #dadada;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RhZGFkYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjZGFkYWRhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiNlM2UzZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjBmMGYwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dadada), color-stop(3%, #dadada), color-stop(4%, #e3e3e3), color-stop(100%, #f0f0f0));
+  background: -webkit-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -o-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: -ms-linear-gradient(top, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  background: linear-gradient(to bottom, #dadada 0%, #dadada 3%, #e3e3e3 4%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dadada', endColorstr='#f0f0f0', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar3:after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  top: -1px;
+  left: -1px;
+  height: 12px;
+  width: 800px;
+  border-radius: 6px;
+}
+.my-progress-bar3:before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  right: 4.8px;
+  height: 11px;
+  width: 213px;
+  z-index: 1;
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Arial;
+  text-align: right;
+  line-height: 12px;
+}
+.my-progress-bar3.show-progress-info {
+  margin-left: 30px;
+}
+.my-progress-bar3.show-progress-info:before {
+  right: 805px;
+  top: -1px;
+}
+.my-progress-bar3.green:after {
+  border: 1px solid #8dab65;
+  background: #d2ff4c;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QyZmY0YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjZDJmZjRjIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiNiZWU4NDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOTVjYTU4IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2ff4c), color-stop(3%, #d2ff4c), color-stop(4%, #bee848), color-stop(100%, #95ca58));
+  background: -webkit-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -o-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: -ms-linear-gradient(top, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  background: linear-gradient(to bottom, #d2ff4c 0%, #d2ff4c 3%, #bee848 4%, #95ca58 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2ff4c', endColorstr='#95ca58', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar3.blue:after {
+  border: 1px solid #80a9bf;
+  background: #63effe;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYzZWZmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjNjNlZmZlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiM1YmQ5ZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDE5ZmU5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #63effe), color-stop(3%, #63effe), color-stop(4%, #5bd9ff), color-stop(100%, #419fe9));
+  background: -webkit-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -o-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: -ms-linear-gradient(top, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  background: linear-gradient(to bottom, #63effe 0%, #63effe 3%, #5bd9ff 4%, #419fe9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#63effe', endColorstr='#419fe9', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar3.orange:after {
+  border: 1px solid #bc8078;
+  background: #ffbf5e;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYmY1ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQlIiBzdG9wLWNvbG9yPSIjZmZiZjVlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNSUiIHN0b3AtY29sb3I9IiNmZjlmNTIiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2ZmOWY1MiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZTc0NDUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbf5e), color-stop(4%, #ffbf5e), color-stop(5%, #ff9f52), color-stop(5%, #ff9f52), color-stop(100%, #fe7445));
+  background: -webkit-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -o-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: -ms-linear-gradient(top, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  background: linear-gradient(to bottom, #ffbf5e 0%, #ffbf5e 4%, #ff9f52 5%, #ff9f52 5%, #fe7445 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffbf5e', endColorstr='#fe7445', GradientType=0);
+  filter: none\9 \0;
+}
+.my-progress-bar3.lvl-0:after {
+  display: none;
+}
+.my-progress-bar3.lvl-10-10:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-10-10.show-progress-info:before {
+  content: "10 / 10";
+}
+.my-progress-bar3.lvl-10-10.show-progress-info-right:before {
+  content: "10 / 10";
+}
+.my-progress-bar3.lvl-9-10:after {
+  width: 720px;
+}
+.my-progress-bar3.lvl-9-10.show-progress-info:before {
+  content: "9 / 10";
+}
+.my-progress-bar3.lvl-9-10.show-progress-info-right:before {
+  content: "9 / 10";
+}
+.my-progress-bar3.lvl-8-10:after {
+  width: 640px;
+}
+.my-progress-bar3.lvl-8-10.show-progress-info:before {
+  content: "8 / 10";
+}
+.my-progress-bar3.lvl-8-10.show-progress-info-right:before {
+  content: "8 / 10";
+}
+.my-progress-bar3.lvl-7-10:after {
+  width: 560px;
+}
+.my-progress-bar3.lvl-7-10.show-progress-info:before {
+  content: "7 / 10";
+}
+.my-progress-bar3.lvl-7-10.show-progress-info-right:before {
+  content: "7 / 10";
+}
+.my-progress-bar3.lvl-6-10:after {
+  width: 480px;
+}
+.my-progress-bar3.lvl-6-10.show-progress-info:before {
+  content: "6 / 10";
+}
+.my-progress-bar3.lvl-6-10.show-progress-info-right:before {
+  content: "6 / 10";
+}
+.my-progress-bar3.lvl-5-10:after {
+  width: 400px;
+}
+.my-progress-bar3.lvl-5-10.show-progress-info:before {
+  content: "5 / 10";
+}
+.my-progress-bar3.lvl-5-10.show-progress-info-right:before {
+  content: "5 / 10";
+}
+.my-progress-bar3.lvl-4-10:after {
+  width: 320px;
+}
+.my-progress-bar3.lvl-4-10.show-progress-info:before {
+  content: "4 / 10";
+}
+.my-progress-bar3.lvl-4-10.show-progress-info-right:before {
+  content: "4 / 10";
+}
+.my-progress-bar3.lvl-3-10:after {
+  width: 240px;
+}
+.my-progress-bar3.lvl-3-10.show-progress-info:before {
+  content: "3 / 10";
+}
+.my-progress-bar3.lvl-3-10.show-progress-info-right:before {
+  content: "3 / 10";
+}
+.my-progress-bar3.lvl-2-10:after {
+  width: 160px;
+}
+.my-progress-bar3.lvl-2-10.show-progress-info:before {
+  content: "2 / 10";
+}
+.my-progress-bar3.lvl-2-10.show-progress-info-right:before {
+  content: "2 / 10";
+}
+.my-progress-bar3.lvl-1-10:after {
+  width: 80px;
+}
+.my-progress-bar3.lvl-1-10.show-progress-info:before {
+  content: "1 / 10";
+}
+.my-progress-bar3.lvl-1-10.show-progress-info-right:before {
+  content: "1 / 10";
+}
+.my-progress-bar3.lvl-9-9:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-9-9.show-progress-info:before {
+  content: "9 / 9";
+}
+.my-progress-bar3.lvl-9-9.show-progress-info-right:before {
+  content: "9 / 9";
+}
+.my-progress-bar3.lvl-8-9:after {
+  width: 711.11111111px;
+}
+.my-progress-bar3.lvl-8-9.show-progress-info:before {
+  content: "8 / 9";
+}
+.my-progress-bar3.lvl-8-9.show-progress-info-right:before {
+  content: "8 / 9";
+}
+.my-progress-bar3.lvl-7-9:after {
+  width: 622.22222222px;
+}
+.my-progress-bar3.lvl-7-9.show-progress-info:before {
+  content: "7 / 9";
+}
+.my-progress-bar3.lvl-7-9.show-progress-info-right:before {
+  content: "7 / 9";
+}
+.my-progress-bar3.lvl-6-9:after {
+  width: 533.33333333px;
+}
+.my-progress-bar3.lvl-6-9.show-progress-info:before {
+  content: "6 / 9";
+}
+.my-progress-bar3.lvl-6-9.show-progress-info-right:before {
+  content: "6 / 9";
+}
+.my-progress-bar3.lvl-5-9:after {
+  width: 444.44444444px;
+}
+.my-progress-bar3.lvl-5-9.show-progress-info:before {
+  content: "5 / 9";
+}
+.my-progress-bar3.lvl-5-9.show-progress-info-right:before {
+  content: "5 / 9";
+}
+.my-progress-bar3.lvl-4-9:after {
+  width: 355.55555556px;
+}
+.my-progress-bar3.lvl-4-9.show-progress-info:before {
+  content: "4 / 9";
+}
+.my-progress-bar3.lvl-4-9.show-progress-info-right:before {
+  content: "4 / 9";
+}
+.my-progress-bar3.lvl-3-9:after {
+  width: 266.66666667px;
+}
+.my-progress-bar3.lvl-3-9.show-progress-info:before {
+  content: "3 / 9";
+}
+.my-progress-bar3.lvl-3-9.show-progress-info-right:before {
+  content: "3 / 9";
+}
+.my-progress-bar3.lvl-2-9:after {
+  width: 177.77777778px;
+}
+.my-progress-bar3.lvl-2-9.show-progress-info:before {
+  content: "2 / 9";
+}
+.my-progress-bar3.lvl-2-9.show-progress-info-right:before {
+  content: "2 / 9";
+}
+.my-progress-bar3.lvl-1-9:after {
+  width: 88.88888889px;
+}
+.my-progress-bar3.lvl-1-9.show-progress-info:before {
+  content: "1 / 9";
+}
+.my-progress-bar3.lvl-1-9.show-progress-info-right:before {
+  content: "1 / 9";
+}
+.my-progress-bar3.lvl-8-8:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-8-8.show-progress-info:before {
+  content: "8 / 8";
+}
+.my-progress-bar3.lvl-8-8.show-progress-info-right:before {
+  content: "8 / 8";
+}
+.my-progress-bar3.lvl-7-8:after {
+  width: 700px;
+}
+.my-progress-bar3.lvl-7-8.show-progress-info:before {
+  content: "7 / 8";
+}
+.my-progress-bar3.lvl-7-8.show-progress-info-right:before {
+  content: "7 / 8";
+}
+.my-progress-bar3.lvl-6-8:after {
+  width: 600px;
+}
+.my-progress-bar3.lvl-6-8.show-progress-info:before {
+  content: "6 / 8";
+}
+.my-progress-bar3.lvl-6-8.show-progress-info-right:before {
+  content: "6 / 8";
+}
+.my-progress-bar3.lvl-5-8:after {
+  width: 500px;
+}
+.my-progress-bar3.lvl-5-8.show-progress-info:before {
+  content: "5 / 8";
+}
+.my-progress-bar3.lvl-5-8.show-progress-info-right:before {
+  content: "5 / 8";
+}
+.my-progress-bar3.lvl-4-8:after {
+  width: 400px;
+}
+.my-progress-bar3.lvl-4-8.show-progress-info:before {
+  content: "4 / 8";
+}
+.my-progress-bar3.lvl-4-8.show-progress-info-right:before {
+  content: "4 / 8";
+}
+.my-progress-bar3.lvl-3-8:after {
+  width: 300px;
+}
+.my-progress-bar3.lvl-3-8.show-progress-info:before {
+  content: "3 / 8";
+}
+.my-progress-bar3.lvl-3-8.show-progress-info-right:before {
+  content: "3 / 8";
+}
+.my-progress-bar3.lvl-2-8:after {
+  width: 200px;
+}
+.my-progress-bar3.lvl-2-8.show-progress-info:before {
+  content: "2 / 8";
+}
+.my-progress-bar3.lvl-2-8.show-progress-info-right:before {
+  content: "2 / 8";
+}
+.my-progress-bar3.lvl-1-8:after {
+  width: 100px;
+}
+.my-progress-bar3.lvl-1-8.show-progress-info:before {
+  content: "1 / 8";
+}
+.my-progress-bar3.lvl-1-8.show-progress-info-right:before {
+  content: "1 / 8";
+}
+.my-progress-bar3.lvl-7-7:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-7-7.show-progress-info:before {
+  content: "7 / 7";
+}
+.my-progress-bar3.lvl-7-7.show-progress-info-right:before {
+  content: "7 / 7";
+}
+.my-progress-bar3.lvl-6-7:after {
+  width: 685.71428571px;
+}
+.my-progress-bar3.lvl-6-7.show-progress-info:before {
+  content: "6 / 7";
+}
+.my-progress-bar3.lvl-6-7.show-progress-info-right:before {
+  content: "6 / 7";
+}
+.my-progress-bar3.lvl-5-7:after {
+  width: 571.42857143px;
+}
+.my-progress-bar3.lvl-5-7.show-progress-info:before {
+  content: "5 / 7";
+}
+.my-progress-bar3.lvl-5-7.show-progress-info-right:before {
+  content: "5 / 7";
+}
+.my-progress-bar3.lvl-4-7:after {
+  width: 457.14285714px;
+}
+.my-progress-bar3.lvl-4-7.show-progress-info:before {
+  content: "4 / 7";
+}
+.my-progress-bar3.lvl-4-7.show-progress-info-right:before {
+  content: "4 / 7";
+}
+.my-progress-bar3.lvl-3-7:after {
+  width: 342.85714286px;
+}
+.my-progress-bar3.lvl-3-7.show-progress-info:before {
+  content: "3 / 7";
+}
+.my-progress-bar3.lvl-3-7.show-progress-info-right:before {
+  content: "3 / 7";
+}
+.my-progress-bar3.lvl-2-7:after {
+  width: 228.57142857px;
+}
+.my-progress-bar3.lvl-2-7.show-progress-info:before {
+  content: "2 / 7";
+}
+.my-progress-bar3.lvl-2-7.show-progress-info-right:before {
+  content: "2 / 7";
+}
+.my-progress-bar3.lvl-1-7:after {
+  width: 114.28571429px;
+}
+.my-progress-bar3.lvl-1-7.show-progress-info:before {
+  content: "1 / 7";
+}
+.my-progress-bar3.lvl-1-7.show-progress-info-right:before {
+  content: "1 / 7";
+}
+.my-progress-bar3.lvl-6-6:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-6-6.show-progress-info:before {
+  content: "6 / 6";
+}
+.my-progress-bar3.lvl-6-6.show-progress-info-right:before {
+  content: "6 / 6";
+}
+.my-progress-bar3.lvl-5-6:after {
+  width: 666.66666667px;
+}
+.my-progress-bar3.lvl-5-6.show-progress-info:before {
+  content: "5 / 6";
+}
+.my-progress-bar3.lvl-5-6.show-progress-info-right:before {
+  content: "5 / 6";
+}
+.my-progress-bar3.lvl-4-6:after {
+  width: 533.33333333px;
+}
+.my-progress-bar3.lvl-4-6.show-progress-info:before {
+  content: "4 / 6";
+}
+.my-progress-bar3.lvl-4-6.show-progress-info-right:before {
+  content: "4 / 6";
+}
+.my-progress-bar3.lvl-3-6:after {
+  width: 400px;
+}
+.my-progress-bar3.lvl-3-6.show-progress-info:before {
+  content: "3 / 6";
+}
+.my-progress-bar3.lvl-3-6.show-progress-info-right:before {
+  content: "3 / 6";
+}
+.my-progress-bar3.lvl-2-6:after {
+  width: 266.66666667px;
+}
+.my-progress-bar3.lvl-2-6.show-progress-info:before {
+  content: "2 / 6";
+}
+.my-progress-bar3.lvl-2-6.show-progress-info-right:before {
+  content: "2 / 6";
+}
+.my-progress-bar3.lvl-1-6:after {
+  width: 133.33333333px;
+}
+.my-progress-bar3.lvl-1-6.show-progress-info:before {
+  content: "1 / 6";
+}
+.my-progress-bar3.lvl-1-6.show-progress-info-right:before {
+  content: "1 / 6";
+}
+.my-progress-bar3.lvl-5-5:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-5-5.show-progress-info:before {
+  content: "5 / 5";
+}
+.my-progress-bar3.lvl-5-5.show-progress-info-right:before {
+  content: "5 / 5";
+}
+.my-progress-bar3.lvl-4-5:after {
+  width: 640px;
+}
+.my-progress-bar3.lvl-4-5.show-progress-info:before {
+  content: "4 / 5";
+}
+.my-progress-bar3.lvl-4-5.show-progress-info-right:before {
+  content: "4 / 5";
+}
+.my-progress-bar3.lvl-3-5:after {
+  width: 480px;
+}
+.my-progress-bar3.lvl-3-5.show-progress-info:before {
+  content: "3 / 5";
+}
+.my-progress-bar3.lvl-3-5.show-progress-info-right:before {
+  content: "3 / 5";
+}
+.my-progress-bar3.lvl-2-5:after {
+  width: 320px;
+}
+.my-progress-bar3.lvl-2-5.show-progress-info:before {
+  content: "2 / 5";
+}
+.my-progress-bar3.lvl-2-5.show-progress-info-right:before {
+  content: "2 / 5";
+}
+.my-progress-bar3.lvl-1-5:after {
+  width: 160px;
+}
+.my-progress-bar3.lvl-1-5.show-progress-info:before {
+  content: "1 / 5";
+}
+.my-progress-bar3.lvl-1-5.show-progress-info-right:before {
+  content: "1 / 5";
+}
+.my-progress-bar3.lvl-4-4:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-4-4.show-progress-info:before {
+  content: "4 / 4";
+}
+.my-progress-bar3.lvl-4-4.show-progress-info-right:before {
+  content: "4 / 4";
+}
+.my-progress-bar3.lvl-3-4:after {
+  width: 600px;
+}
+.my-progress-bar3.lvl-3-4.show-progress-info:before {
+  content: "3 / 4";
+}
+.my-progress-bar3.lvl-3-4.show-progress-info-right:before {
+  content: "3 / 4";
+}
+.my-progress-bar3.lvl-2-4:after {
+  width: 400px;
+}
+.my-progress-bar3.lvl-2-4.show-progress-info:before {
+  content: "2 / 4";
+}
+.my-progress-bar3.lvl-2-4.show-progress-info-right:before {
+  content: "2 / 4";
+}
+.my-progress-bar3.lvl-1-4:after {
+  width: 200px;
+}
+.my-progress-bar3.lvl-1-4.show-progress-info:before {
+  content: "1 / 4";
+}
+.my-progress-bar3.lvl-1-4.show-progress-info-right:before {
+  content: "1 / 4";
+}
+.my-progress-bar3.lvl-3-3:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-3-3.show-progress-info:before {
+  content: "3 / 3";
+}
+.my-progress-bar3.lvl-3-3.show-progress-info-right:before {
+  content: "3 / 3";
+}
+.my-progress-bar3.lvl-2-3:after {
+  width: 533.33333333px;
+}
+.my-progress-bar3.lvl-2-3.show-progress-info:before {
+  content: "2 / 3";
+}
+.my-progress-bar3.lvl-2-3.show-progress-info-right:before {
+  content: "2 / 3";
+}
+.my-progress-bar3.lvl-1-3:after {
+  width: 266.66666667px;
+}
+.my-progress-bar3.lvl-1-3.show-progress-info:before {
+  content: "1 / 3";
+}
+.my-progress-bar3.lvl-1-3.show-progress-info-right:before {
+  content: "1 / 3";
+}
+.my-progress-bar3.lvl-2-2:after {
+  width: 800px;
+}
+.my-progress-bar3.lvl-2-2.show-progress-info:before {
+  content: "2 / 2";
+}
+.my-progress-bar3.lvl-2-2.show-progress-info-right:before {
+  content: "2 / 2";
+}
+.my-progress-bar3.lvl-1-2:after {
+  width: 400px;
+}
+.my-progress-bar3.lvl-1-2.show-progress-info:before {
+  content: "1 / 2";
+}
+.my-progress-bar3.lvl-1-2.show-progress-info-right:before {
+  content: "1 / 2";
+}
